@@ -103,7 +103,7 @@ official train/val/test data, you can look in [dataset.py](https://github.com/br
 
 **Notations**: c * l * h * w where c is the number of channels, l is length in number of frames, h and w are the height and width of the frame, respectively. We also refer 3D convolution and pooling kernel size by d * k * k, where d is kernel temporal depth and k is kernel spatial size.
 
-## C3D Structure
+## C3D 
 以下為 [Learning Spatiotemporal Features with 3D Convolutional Networks](https://arxiv.org/abs/1412.0767) 所提及之架構
 
 ![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/C3D_structure.png)
@@ -116,4 +116,5 @@ official train/val/test data, you can look in [dataset.py](https://github.com/br
 1. 分解成2個子卷積相較於1個卷積多了一個非線性操作
 2. 分解後，讓優化的過程也分解開來，降低了 3D 時空卷積把空間信息和動態信息擰在一起不易優化的困境
 經結果顯示，R(2+1)D 更加容易優化，loss也相對更低 
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/R(2%2B1)D_loss.png)
 
