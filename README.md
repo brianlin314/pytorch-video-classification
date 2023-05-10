@@ -47,6 +47,7 @@ I used two different datasets: UCF101 and HMDB.
 Dataset directory tree is shown below
 
 - **UCF101**
+
 Make sure to put the files as the following structure:
   ```
   UCF-101
