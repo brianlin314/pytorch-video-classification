@@ -3,10 +3,10 @@ class Path(object):
     def db_dir(database):
         if database == 'ucf101':
             # folder that contains class labels
-            root_dir = '/Path/to/UCF-101'
+            root_dir = '../UCF-101'
 
             # Save preprocess data into output_dir
-            output_dir = '/path/to/VAR/ucf101'
+            output_dir = '../ucf101'
 
             return root_dir, output_dir
         elif database == 'hmdb51':

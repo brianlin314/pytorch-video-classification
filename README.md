@@ -4,8 +4,6 @@ This repository is cloned from [pytorch-video-recognition](https://github.com/jf
 This repo contains several models for video action recognition,
 including C3D, R2Plus1D, R3D, inplemented using PyTorch (0.4.0).
 Currently, we train these models on UCF101 and HMDB51 datasets.
-## Installation
-The code was tested with Anaconda and Python 3.5. After installing the Anaconda environment:
 
 0. Clone the repo:
     ```Shell
@@ -19,7 +17,7 @@ The code was tested with Anaconda and Python 3.5. After installing the Anaconda 
 
     For custom dependencies:
     ```Shell
-    conda install opencv
+    pip install opencv-python
     pip install tqdm scikit-learn tensorboardX
     ```
 
@@ -28,10 +26,10 @@ The code was tested with Anaconda and Python 3.5. After installing the Anaconda 
    Currently only support pretrained model for C3D.
 
 3. Configure your dataset and pretrained model path in
-[mypath.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/mypath.py).
+[mypath.py](https://github.com/brianlin314/pytorch-video-classification/blob/master/mypath.py).
 
 4. You can choose different models and datasets in
-[train.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/train.py).
+[train.py](https://github.com/brianlin314/pytorch-video-classification/blob/master/train.py).
 
     To train the model, please do:
     ```Shell
@@ -84,4 +82,19 @@ Note: HMDB dataset's directory tree is similar to UCF101 dataset's.
 ## Experiments
 These models were trained in machine with NVIDIA TITAN X 12gb GPU. Note that I splited
 train/val/test data for each dataset using sklearn. If you want to train models using
-official train/val/test data, you can look in [dataset.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/dataloaders/dataset.py), and modify it to your needs.
+official train/val/test data, you can look in [dataset.py](https://github.com/brianlin314/pytorch-video-classification/blob/master/dataloaders/dataset.py), and modify it to your needs.
+
+## tensorboard
+可透過輸入指令 `tensorboard --logdir './run'` 開啟 tensorboard 
+
+## C3D Structure
+以下簡述 [Learning Spatiotemporal Features with 3D Convolutional Networks](https://arxiv.org/abs/1412.0767) 所提及之架構
+
+### 2D and 3D convolution operations
+在圖像領域，通常都是針對一張靜態圖像進行卷積，即使用 2D 卷積網路就足夠，但在影片領域，雖然也可以使用 2D 卷積網路進行辨識，但為了保留時間信息，就需要模型學習空間特徵，若使用 2D 卷積來處理影片，那麼就沒辦法考慮連續多幀之間的運動信息，所以提出了 C3D 網路。
+
+使用 conv2d 進行影片辨識，可參考[這篇](https://debuggercafe.com/action-recognition-in-videos-using-deep-learning-and-pytorch/)手把手教學
+
+**具體操作**: 通過同時堆疊多個連續幀形成的立方體與一個 3D 核進行卷積。通過這個方法，卷積層上的特徵圖連接到了前一層的多個連續幀，從而捕捉動作信息。
+
+**Notations**: c * l * h * w where c is the number of channels, l is length in number of frames, h and w are the height and width of the frame, respectively. We also refer 3D convolution and pooling kernel size by d * k * k, where d is kernel temporal depth and k is kernel spatial size.
