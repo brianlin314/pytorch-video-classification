@@ -1,17 +1,21 @@
 # pytorch-video-recognition
 This repository is cloned from [pytorch-video-recognition](https://github.com/jfzhang95/pytorch-video-recognition) and fixed the bugs of the original code.
+
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/basketballdunk.gif)
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/basketballdunk_p.gif)
+
 ## Introduction
 This repo contains several models for video action recognition,
 including C3D, R2Plus1D, R3D, inplemented using PyTorch (0.4.0).
 Currently, we train these models on UCF101 and HMDB51 datasets.
 
-0. Clone the repo:
+- Clone the repo:
     ```Shell
     git clone https://github.com/brianlin314/pytorch-video-classification.git
     cd pytorch-video-classification
     ```
 
-1. Install dependencies:
+- Install dependencies:
 
     For PyTorch dependency, see [pytorch.org](https://pytorch.org/) for more details.
 
@@ -21,17 +25,17 @@ Currently, we train these models on UCF101 and HMDB51 datasets.
     pip install tqdm scikit-learn tensorboardX
     ```
 
-2. Download pretrained model from [BaiduYun](https://pan.baidu.com/s/1saNqGBkzZHwZpG-A5RDLVw) or 
+- Download pretrained model from [BaiduYun](https://pan.baidu.com/s/1saNqGBkzZHwZpG-A5RDLVw) or 
 [GoogleDrive](https://drive.google.com/file/d/19NWziHWh1LgCcHU34geoKwYezAogv9fX/view?usp=sharing).
    Currently only support pretrained model for C3D.
 
-3. Configure your dataset and pretrained model path in
+- Configure your dataset and pretrained model path in
 [mypath.py](https://github.com/brianlin314/pytorch-video-classification/blob/master/mypath.py).
 
-4. You can choose different models and datasets in
+- You can choose different models and datasets in
 [train.py](https://github.com/brianlin314/pytorch-video-classification/blob/master/train.py).
 
-    To train the model, please do:
+- To train the model, please do:
     ```Shell
     python train.py
     ```
@@ -90,8 +94,11 @@ official train/val/test data, you can look in [dataset.py](https://github.com/br
 ## C3D Structure
 以下簡述 [Learning Spatiotemporal Features with 3D Convolutional Networks](https://arxiv.org/abs/1412.0767) 所提及之架構
 
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/C3D_structure.png)
 ### 2D and 3D convolution operations
 在圖像領域，通常都是針對一張靜態圖像進行卷積，即使用 2D 卷積網路就足夠，但在影片領域，雖然也可以使用 2D 卷積網路進行辨識，但為了保留時間信息，就需要模型學習空間特徵，若使用 2D 卷積來處理影片，那麼就沒辦法考慮連續多幀之間的運動信息，所以提出了 C3D 網路。
+
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/3Dconvolution.png)
 
 使用 conv2d 進行影片辨識，可參考[這篇](https://debuggercafe.com/action-recognition-in-videos-using-deep-learning-and-pytorch/)手把手教學
 
