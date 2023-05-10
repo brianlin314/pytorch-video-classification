@@ -1,20 +1,9 @@
 # pytorch-video-recognition
-
-<table style="border:0px">
-   <tr>
-       <td><img src="assets/demo1.gif" frame=void rules=none></td>
-       <td><img src="assets/demo2.gif" frame=void rules=none></td>
-   </tr>
-</table>
-
+This repository is cloned from [pytorch-video-recognition](https://github.com/jfzhang95/pytorch-video-recognition) and fixed the bugs of the original code.
 ## Introduction
 This repo contains several models for video action recognition,
 including C3D, R2Plus1D, R3D, inplemented using PyTorch (0.4.0).
 Currently, we train these models on UCF101 and HMDB51 datasets.
-**More models and datasets will be available soon!**
-
-**Note: An interesting online web game based on C3D model is in [here](https://github.com/jfzhang95/project-demo).**
-
 ## Installation
 The code was tested with Anaconda and Python 3.5. After installing the Anaconda environment:
 
@@ -96,16 +85,3 @@ Note: HMDB dataset's directory tree is similar to UCF101 dataset's.
 These models were trained in machine with NVIDIA TITAN X 12gb GPU. Note that I splited
 train/val/test data for each dataset using sklearn. If you want to train models using
 official train/val/test data, you can look in [dataset.py](https://github.com/jfzhang95/pytorch-video-recognition/blob/master/dataloaders/dataset.py), and modify it to your needs.
-
-Currently, I only train C3D model in UCF and HMDB datasets. The train/val/test
-accuracy and loss curves for each experiment are shown below:
-
-- **UCF101**
-
-<p align="center"><img src="assets/ucf101_results.png" align="center" width=900 height=auto/></p>
-
-- **HMDB51**
-
-<p align="center"><img src="assets/hmdb51_results.png" align="center" width=900 height=auto/></p>
-
-Experiments for other models will be updated soon ...
