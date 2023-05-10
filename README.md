@@ -20,8 +20,8 @@ The code was tested with Anaconda and Python 3.5. After installing the Anaconda 
 
 0. Clone the repo:
     ```Shell
-    git clone https://github.com/jfzhang95/pytorch-video-recognition.git
-    cd pytorch-video-recognition
+    git clone https://github.com/brianlin314/pytorch-video-classification.git
+    cd pytorch-video-classification
     ```
 
 1. Install dependencies:
@@ -72,21 +72,22 @@ Make sure to put the files as the following structure:
 After pre-processing, the output dir's structure is as follows:
   ```
   ucf101
-  ├── ApplyEyeMakeup
-  │   ├── v_ApplyEyeMakeup_g01_c01
-  │   │   ├── 00001.jpg
-  │   │   └── ...
-  │   └── ...
-  ├── ApplyLipstick
-  │   ├── v_ApplyLipstick_g01_c01
-  │   │   ├── 00001.jpg
-  │   │   └── ...
-  │   └── ...
-  └── Archery
-  │   ├── v_Archery_g01_c01
-  │   │   ├── 00001.jpg
-  │   │   └── ...
-  │   └── ...
+  ├── train
+  │    └── ├── ApplyEyeMakeup
+  │        │   ├── v_ApplyEyeMakeup_g01_c01
+  │        │   │   ├── 00001.jpg
+  │        │   │   └── ...
+  │        │   └── ...
+  │        ├── ApplyLipstick
+  │        │   ├── v_ApplyLipstick_g01_c01
+  │        │   │   ├── 00001.jpg
+  │        │   │   └── ...
+  │        │   └── ...
+  │
+  ├── test
+  │    └── ...
+  ├── val
+  │    └──...
   ```
 
 Note: HMDB dataset's directory tree is similar to UCF101 dataset's.
