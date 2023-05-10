@@ -133,11 +133,11 @@ class VideoDataset(Dataset):
             test_dir = os.path.join(self.output_dir, 'test', file)
 
             if not os.path.exists(train_dir):
-                os.mkdir(train_dir)
+                os.makedirs(train_dir)
             if not os.path.exists(val_dir):
-                os.mkdir(val_dir)
+                os.makedirs(val_dir)
             if not os.path.exists(test_dir):
-                os.mkdir(test_dir)
+                os.makedirs(test_dir)
 
             for video in train:
                 self.process_video(video, file, train_dir)
