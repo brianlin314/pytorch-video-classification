@@ -91,6 +91,7 @@ official train/val/test data, you can look in [dataset.py](https://github.com/br
 
 ## tensorboard
 可透過輸入指令 `tensorboard --logdir './run'` 開啟 tensorboard 
+![image](https://github.com/brianlin314/pytorch-video-classification/blob/master/assets/R2Plus1D_tensorboard.png?raw=true)
 
 ## 2D and 3D convolution operations
 在圖像領域，通常都是針對一張靜態圖像進行卷積，即使用 2D 卷積網路就足夠，但在影片領域，雖然也可以使用 2D 卷積網路進行辨識，但為了保留時間信息，就需要模型學習空間特徵，若使用 2D 卷積來處理影片，那麼就沒辦法考慮連續多幀之間的運動信息，所以提出了 C3D 網路。
